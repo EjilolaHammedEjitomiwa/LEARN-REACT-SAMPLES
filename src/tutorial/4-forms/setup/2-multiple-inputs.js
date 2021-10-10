@@ -26,8 +26,7 @@ const ControlledInputs = () => {
     const value = e.target.value;
 
     setPerson({ ...person, [name]: value });
-
-
+    
   };
 
   return (
