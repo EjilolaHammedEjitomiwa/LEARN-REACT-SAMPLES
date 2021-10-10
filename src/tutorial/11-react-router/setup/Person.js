@@ -3,13 +3,20 @@ import { data } from "../../../data";
 import { Link, useParams } from "react-router-dom";
 const Person = () => {
   const { id } = useParams();
-
   const [name, setName] = useState("default name");
+
+  useEffect(() => {
+    const newPerson = data.find((person) => person.id === parseInt(id));
+    setName(newPerson.name);
+  }, []);
 
   console.log(`ID =  ${id}`);
   return (
     <div>
-      <h2>person</h2>
+      <h1> {name} </h1>
+      <Link to="/people" className="btn">
+        Back
+      </Link>
     </div>
   );
 };
